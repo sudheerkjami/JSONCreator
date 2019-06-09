@@ -1,0 +1,191 @@
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+	.active{
+		background-color:blue;
+	}
+	td{
+		padding:5px;
+	}
+	table{
+		   margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	</style>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+	
+</head>
+<body>
+	<div class="container" style="width:80%;margin-left:auto;margin-right:auto">
+		<div  class="row">
+			<h2>Create Json Format</h2>
+		</div>
+		<div  class="row">
+			<button id="btnPages" class="btn btn-default active">Test</button>
+			<button id="btnTest" class="btn btn-default">Pages</button>
+			<button id="btnData" class="btn btn-default">Data</button>
+		</div>
+		<div id="pages" class="row">
+			<div class="col-md-6">
+				<table id="tblPages" border="1px solid black">
+					<tr>
+						<td>
+							<label>Name: </label> 
+						</td>
+						<td>
+							<!--<input class="txtName" type="text" placeholder="Name" />-->
+							<select id="setName">
+								 <option value="textEquals">textEquals</option>
+								  <option value="goto">goto</option>
+								  <option value="click">click</option>
+							 							  
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Elements: </label>
+						</td>
+						<td>
+							<input class="txtElement" type="text" placeholder="Elements" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Params: </label><br>
+						</td>
+						<td>
+							<input class="txtParams" type="text" placeholder="Params" />
+						</td>
+					</tr>
+				</table>
+				<button onclick="displayResult()">Add Row</button>
+				<button>Clear</button>
+			</div>
+			<pre id="printPages" class="col-md-6">
+			</pre>
+			
+		</div>
+		<div id="test"  class="row">
+			<div class="col-md-6">
+				<table id="tblTest" cellpadding="10" border="1px solid black">
+					<tr>
+						<td>
+							<input class="txtLabel" type="text" placeholder="Page Element" />
+							<input class="txtSelector" type="text" placeholder="Page Selector" /> <br>
+						</td>
+					</tr>
+				</table>
+				<button onclick="addTestRow()">Add Row</button>
+				<button>Clear</button>
+			</div>
+			<pre id="printTest" class="col-md-6">
+				
+			</pre>
+			
+		</div>
+		<div id="data"  class="row">
+			
+		</div>
+	</div>
+    <script type="text/javascript">
+		var pageJson=[];
+		var testJson=[];
+		
+		$( document ).ready(function() {
+			console.log( "ready!" );
+			$("#test").hide();
+			$("#data").hide();
+			$('#setName').on('change', function() {
+			  var selValue = this.value
+			  if(selValue == "click"){
+				$(".txtParams").hide();
+			  }else{
+				$(".txtParams").show();
+			  }
+			});
+			$("#btnPages").click(function() {
+				$("#btnPages").addClass("active");
+				$("#btnTest").removeClass("active");
+				$("#btnData").removeClass("active");
+				$("#pages").show();
+				$("#test").hide();
+				$("#data").hide();
+			});
+			$("#btnTest").click(function() {
+				$("#btnTest").addClass("active");
+				$("#btnPages").removeClass("active");
+				$("#btnData").removeClass("active");
+				$("#pages").hide();
+				$("#test").show();
+				$("#data").hide();
+			});
+			$("#btnData").click(function() {
+				$("#btnData").addClass("active");
+				$("#btnPages").removeClass("active");
+				$("#btnTest").removeClass("active");
+				$("#pages").hide();
+				$("#test").hide();
+				$("#data").show();
+			});
+		});
+		
+		function displayResult()
+        {
+           /* $("#tblPages").append("<tr><td><label>Name: </label><input class='txtName' type='text' placeholder='Name' /> <br>"+
+							"<label>Elements: </label><input class='txtElement' type='text' placeholder='Elements' /><br>"+
+						"<label>Params: </label><input class='txtParams' type='text' placeholder='Params:' /><br></td></tr>");*/
+			var td = $("#tblPages tr");
+			var selectValue = $('#setName option:selected').text();
+			if (selectValue == "click"){
+				pageJson.push({
+						name: selectValue,
+						element: td.find('.txtElement').val(),
+				});
+			}
+			else{
+				pageJson.push({
+					name: selectValue,
+					element: td.find('.txtElement').val(),
+					params: {
+							expectedText: td.find('.txtParams').val()
+							}
+				 });
+			}
+			//$("#printPages").text(pageJson);
+			var testFinalJson =[];
+			testFinalJson.push({actions:pageJson});
+			var strPages=JSON.stringify(testFinalJson,null,4);
+			//var strPages=JSON.stringify(pageJson);
+			console.log(strPages);
+			$("#printPages").text(strPages);
+			$(".txtName").val("");
+			$(".txtElement").val("");
+			$(".txtParams").val("");
+        }
+		function addTestRow()
+        {
+           	var td = $("#tblTest tr");
+			var item = {}
+			var label = td.find('.txtLabel').val();
+			item[label]={Selector: td.find('.txtSelector').val()};
+			testJson.push(item);
+			//var strPages=JSON.stringify(testJson,undefined,4);
+			var testFinalJson =[];
+			testFinalJson.push({elements:testJson});
+			var strPages=JSON.stringify(testFinalJson,null,4);
+			//var strPages=JSON.stringify(testJson);
+			console.log(strPages);
+			$("#printTest").text(strPages);
+			$(".txtLabel").val("");
+			$(".txtSelector").val("");
+			//$(".txtParams").val("");
+        }
+        </script>
+</body>
+</html>
