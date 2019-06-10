@@ -1,0 +1,732 @@
+<html>
+
+	<head>
+		<title>IA2 Action Docs - (50 Actions)</title>
+		
+		<style>
+			:root {
+				--blue1 : #466caa;
+			}
+		
+			body {
+				width: 800px;
+				margin: auto;
+				border: 1px solid black;
+			}
+			
+			.actionBlock {
+				margin-left: 1em;
+				margin-bottom: 0.5em;
+				
+			}
+			
+			.actionName {
+				font-weight: bold;
+				font-size: 1.8em;
+				color: var(--blue1);
+			}
+			
+			.actionDescription {
+				margin-left: 3em;
+			}
+			
+			.parametersBlock {
+				margin-top: 0.5em;
+				margin-left: 3em;
+			}
+			
+			.parametersHeader {
+				font-weight: bold;
+			}
+			
+			.parameterName {
+				font-weight: bold;
+				margin-top: 0.3em;
+				margin-left: 1.5em;
+			}
+			
+			.parameterDescription {
+				margin-top: 0.3em;
+				margin-left: 3em;
+				font-style: italic;
+			}
+			
+			.parameterNone {
+				margin-left: 1.5em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="actionBlock">
+			<div class="actionName">appendToFile</div>
+			<div class="actionDescription">Append text to a file.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">file (Required)</div>
+					<div class="parameterDescription">The file to write to.</div>
+					<div class="parameterName">text (Required)</div>
+					<div class="parameterDescription">The text to write to the file.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">assuranceComboBox</div>
+			<div class="actionDescription">Try to select an item from a react-virtualized combobox.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">option (Required)</div>
+					<div class="parameterDescription">The visible text of the option to select.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">attributeEquals</div>
+			<div class="actionDescription">Verify that an attribute is set to the expected value.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">attributeName (Required)</div>
+					<div class="parameterDescription">The name of the attribute to validate.</div>
+					<div class="parameterName">expectedValue (Required)</div>
+					<div class="parameterDescription">The expected value.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">attributeNotPresent</div>
+			<div class="actionDescription">Verify that an attribute is not present for an element.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">attributeName (Required)</div>
+					<div class="parameterDescription">The name of the attribute that should not be present.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">attributePresent</div>
+			<div class="actionDescription">Verify that an attribute is present for an element.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">attributeName (Required)</div>
+					<div class="parameterDescription">The name of the attribute that should be present.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">browserBack</div>
+			<div class="actionDescription">Simulate clicking the back button in the browser.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">browserForward</div>
+			<div class="actionDescription">Simulate clicking the forward button in the browser.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">clearText</div>
+			<div class="actionDescription">Clear the text of a form field.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">click</div>
+			<div class="actionDescription">Click an element in the page.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">closeWindow</div>
+			<div class="actionDescription">Close the current window.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">cssPropertyContains</div>
+			<div class="actionDescription">Verify that a CSS property contains the expected value.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">propertyName (Required)</div>
+					<div class="parameterDescription">The name of the css property to validate.</div>
+					<div class="parameterName">expectedValue (Required)</div>
+					<div class="parameterDescription">The expected value.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">cssPropertyEquals</div>
+			<div class="actionDescription">Verify that a CSS property is set to the expected value.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">propertyName (Required)</div>
+					<div class="parameterDescription">The name of the css property to validate.</div>
+					<div class="parameterName">expectedValue (Required)</div>
+					<div class="parameterDescription">The expected value.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">doubleClick</div>
+			<div class="actionDescription">Double-click an element in the page.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">fail</div>
+			<div class="actionDescription">Fail the test.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">message (Required)</div>
+					<div class="parameterDescription">The message to display.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">getAndStoreJSON</div>
+			<div class="actionDescription">Fetch a url, parse the JSON and store it.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">url (Required)</div>
+					<div class="parameterDescription">The url to fetch.</div>
+					<div class="parameterName">jsonPath (Required)</div>
+					<div class="parameterDescription">The JSON Path expression used to select a subset of the response.</div>
+					<div class="parameterName">key (Required)</div>
+					<div class="parameterDescription">The variable name to use to store the value.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">goto</div>
+			<div class="actionDescription">Navigate to a given URL.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">url (Required)</div>
+					<div class="parameterDescription">The URL to navigate to.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">interact</div>
+			<div class="actionDescription">Pause test execution until okay is clicked on the dialog.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">message (Required)</div>
+					<div class="parameterDescription">The text to display on the dialog.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">isDisplayed</div>
+			<div class="actionDescription">Validate that an element is displayed.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">isEnabled</div>
+			<div class="actionDescription">Validate that an element is enabled.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">isNotDisplayed</div>
+			<div class="actionDescription">Validate that an element is not displayed.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">isNotEnabled</div>
+			<div class="actionDescription">Validate that an element is not enabled.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">isNotSelected</div>
+			<div class="actionDescription">Validate that an element is not selected.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">isSelected</div>
+			<div class="actionDescription">Validate that an element is selected.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">jsConsole</div>
+			<div class="actionDescription">Write a message to the browser's console.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">message (Required)</div>
+					<div class="parameterDescription">The message to write.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">message</div>
+			<div class="actionDescription">Write a message to the message subsystem (ie the log file).</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">message (Required)</div>
+					<div class="parameterDescription">The message to display.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">moveToElement</div>
+			<div class="actionDescription">Move to or hover over the element.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">newWindow</div>
+			<div class="actionDescription">Open a new window.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">ngHorizontalSlider</div>
+			<div class="actionDescription">Set a slider to a given percentage.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">percentage (Required)</div>
+					<div class="parameterDescription">The percentage to set the slider to (between 0 and 100).</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">pageContains</div>
+			<div class="actionDescription">Verify that the page source contains the expected text.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">expectedText (Required)</div>
+					<div class="parameterDescription">The text the page source should contain.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">refresh</div>
+			<div class="actionDescription">Refresh the current page.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">screenshot</div>
+			<div class="actionDescription">Take a screenshot of the current page.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">scrollBy</div>
+			<div class="actionDescription">Scroll by a number of pixels. Use negative values for x and y to go left and up (respectively).</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">x (Required)</div>
+					<div class="parameterDescription">The value for x.</div>
+					<div class="parameterName">y (Required)</div>
+					<div class="parameterDescription">The value for y.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">scrollIntoView</div>
+			<div class="actionDescription">Scroll the element into view.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">select</div>
+			<div class="actionDescription">Select a radio button or checkbox.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">selectOption</div>
+			<div class="actionDescription">Select an option from a drop down.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">option (Required)</div>
+					<div class="parameterDescription">The visible text value of the option.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">setText</div>
+			<div class="actionDescription">Set the text of a field.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">text (Required)</div>
+					<div class="parameterDescription">The text to set the field to.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">storeElementJSON</div>
+			<div class="actionDescription">Extract JSON data from an element, select a subsection based on JSON Path and store the value.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">jsonPath (Required)</div>
+					<div class="parameterDescription">The JSON Path according to: https://github.com/json-path/JsonPath</div>
+					<div class="parameterName">key (Required)</div>
+					<div class="parameterDescription">The variable name to use to store the value.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">storeText</div>
+			<div class="actionDescription">Capture an element text and store it for later use.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">key (Required)</div>
+					<div class="parameterDescription">The variable name used to store the value.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">storedValueEquals</div>
+			<div class="actionDescription">Compare a stored value against an expected value.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">key (Required)</div>
+					<div class="parameterDescription">The variable name of the stored value to compare.</div>
+					<div class="parameterName">expectedValue (Required)</div>
+					<div class="parameterDescription">The expected value.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">switchToDefaultContent</div>
+			<div class="actionDescription">Reset to the default content frame.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">switchToFrame</div>
+			<div class="actionDescription">Switch to a frame based on the selected element.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">switchWindow</div>
+			<div class="actionDescription">Switch to a different window.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">number (Required)</div>
+					<div class="parameterDescription">The window number to switch to (starting at 0).</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">textContains</div>
+			<div class="actionDescription">Verify that an element's text contains the expected text.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">expectedText (Required)</div>
+					<div class="parameterDescription">The expected text.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">textEquals</div>
+			<div class="actionDescription">Verify that an element's text equals the expected text.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">expectedText (Required)</div>
+					<div class="parameterDescription">The expected text.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (Yes)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">titleContains</div>
+			<div class="actionDescription">Verify that the page title contains the expected text.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">expectedText (Required)</div>
+					<div class="parameterDescription">The text the page title should contain.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">titleEquals</div>
+			<div class="actionDescription">Verify that the page title equals the expected text.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">expectedText (Required)</div>
+					<div class="parameterDescription">The expected title text.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">urlContains</div>
+			<div class="actionDescription">Verify that the current url contains the expected text.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">expectedText (Required)</div>
+					<div class="parameterDescription">The text the current url should contain.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">urlEndsWith</div>
+			<div class="actionDescription">Verify that the current url ends with the expected text.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">expectedText (Required)</div>
+					<div class="parameterDescription">The text the current url should end with.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">urlIsSecure</div>
+			<div class="actionDescription">Verify that the current url is using https.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+				<div class="parameterNone">None.</div>
+			
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+		<div class="actionBlock">
+			<div class="actionName">wait</div>
+			<div class="actionDescription">Pause for a specified number of milliseconds.</div>
+	
+			<div class="parametersBlock">
+			<div class="parametersHeader">Parameters:</div>
+			
+					<div class="parameterName">millis (Required)</div>
+					<div class="parameterDescription">The amount of time to wait (in milliseconds).</div>
+					<div class="parameterName">message (Optional)</div>
+					<div class="parameterDescription">A message to display.</div>
+			</div>
+			
+			<div class="parameterName">Element Required? (No)</div>
+		</div>
+ 	</body>
+</html>
