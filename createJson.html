@@ -28,8 +28,9 @@
 		<div  class="row">
 			<button id="btnPages" class="btn btn-default active">Test</button>
 			<button id="btnTest" class="btn btn-default">Page</button>
-			<button id="btnData" class="btn btn-default">Data</button>
+			<!--<button id="btnData" class="btn btn-default">Data</button>-->
 		</div>
+		
 		<div id="pages" class="row">
 			<div class="col-md-6">
 				<table id="tblPages" border="1px solid black">
@@ -39,28 +40,46 @@
 						</td>
 						<td>
 							<!--<input class="txtName" type="text" placeholder="Name" />-->
-							<select id="setName">
-								 <option value="textEquals">textEquals</option>
-								  <option value="goto">goto</option>
-								  <option value="click">click</option>
-							 							  
+							<select id="setName">			
+								 <option value="browserBack">browserBack</option>	
+								 <option value="browserForward">browserForward</option>	 
+								 <option value="clearText">clearText</option>
+								 <option value="click">click</option>
+								 <option value="closeWindow">closeWindow</option>
+								 <option value="doubleClick">doubleClick</option>
+								 <option value="goto">goto</option>
+								 <option value="moveToElement">moveToElement</option>
+								 <option value="newWindow">newWindow</option>
+								 <option value="pageContains">pageContains</option>
+								 <option value="refresh">refresh</option>
+								 <option value="screenshot">screenshot</option>
+								 <option value="select">select</option>
+                 <option value="selectOption">selectOption</option>
+                 <option value="setText">setText</option>
+                 <option value="storeText">storeText</option>
+                 <option value="switchToDefaultContent">switchToDefaultContent</option>
+                 <option value="textContains">textContains</option>
+                 <option value="textEquals">textEquals</option>	
+                 <option value="titleContains">titleContains</option>
+                 <option value="titleEquals">titleEquals</option>
+                 <option value="wait">wait</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label>Elements: </label>
+							<label>Element: </label>
 						</td>
 						<td>
-							<input class="txtElement" type="text" placeholder="Elements" />
+							<input class="txtElement" type="text" placeholder="Please Enter Element" />
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label>Params: </label><br>
+							<label>Param: </label><br>
 						</td>
 						<td>
-							<input class="txtParams" type="text" placeholder="Params" />
+							<input class="txtParams" type="text" placeholder="Please Enter Param" />
 						</td>
 					</tr>
 				</table>
@@ -103,9 +122,16 @@
 			$("#data").hide();
 			$('#setName').on('change', function() {
 			  var selValue = this.value
-			  if(selValue == "click"){
+			  
+			  if(selValue == "browserBack"||selValue == "browserForward"||selValue == "closeWindow"||selValue == "newWindow"||selValue == "refresh"
+			  ||selValue == "select"){
+			  $(".txtElement").hide();
+				$(".txtParams").hide();				
+			  }else if(selValue=="click"){
+			  $(".txtElement").show();
 				$(".txtParams").hide();
 			  }else{
+			  $(".txtElement").show();
 				$(".txtParams").show();
 			  }
 			});
@@ -142,11 +168,16 @@
 						"<label>Params: </label><input class='txtParams' type='text' placeholder='Params:' /><br></td></tr>");*/
 			var td = $("#tblPages tr");
 			var selectValue = $('#setName option:selected').text();
-			if (selectValue == "click"){
+			if (selectValue == "browserBack"||selectValue == "browserForward"||selectValue == "closeWindow"||selectValue == "newWindow"||selectValue == "refresh"
+			||selectValue == "select"){
 				pageJson.push({
-						name: selectValue,
-						element: td.find('.txtElement').val(),
+						name: selectValue
 				});
+			}else if(selectValue == "click"){
+			pageJson.push({
+					name: selectValue,
+					element: td.find('.txtElement').val()
+				 });
 			}
 			else{
 				pageJson.push({
@@ -168,9 +199,9 @@
 			$(".txtElement").val("");
 			$(".txtParams").val("");
         }
-		function addTestRow()
+		/*function addTestRow()
         {
-           	var td = $("#tblTest tr");
+      var td = $("#tblTest tr");
 			var item = {}
 			var label = td.find('.txtLabel').val();
 			item[label]={Selector: td.find('.txtSelector').val()};
@@ -185,7 +216,37 @@
 			$(".txtLabel").val("");
 			$(".txtSelector").val("");
 			//$(".txtParams").val("");
-        }
+        }*/
+        
+var item=[];
+var i=0;
+var strItems = "";
+function addTestRow()
+        {
+           	var td = $("#tblTest tr");
+var label = td.find('.txtLabel').val();
+
+item[label]={selector: td.find('.txtSelector').val()};
+i = i+1;
+if(i== 1)
+strItems ='"'+label+'":'+JSON.stringify(item[label]);
+else
+strItems = strItems +',"'+ label+'":'+JSON.stringify(item[label]);
+console.log(strItems);
+//testJson.push(item);
+var strFinal = "{"+strItems+"}";
+//var strPages=JSON.stringify(testJson,undefined,4);
+var testFinalJson =[];
+//testFinalJson.push({elements:testJson});
+testFinalJson.push({elements:JSON.parse(strFinal)});
+var strPages=JSON.stringify(testFinalJson,null,4);
+//var strPages=JSON.stringify(testJson);
+console.log(strPages);
+$("#printTest").text(strPages);
+$(".txtLabel").val("");
+$(".txtSelector").val("");
+//$(".txtParams").val("");
+}
         </script>
 </body>
 </html>
